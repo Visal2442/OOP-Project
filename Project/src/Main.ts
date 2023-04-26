@@ -16,4 +16,7 @@ import { Pilot } from "./Person/Employee/Pilot";
 import { Passenger } from "./Person/Passenger/Passenger";
 import { Trip } from "./Trip/Trip";
 
+// Create Airports 
+// let salAirport :Airport = new Airport("Sal", "SAL", new Address())
+
 
