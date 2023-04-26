@@ -1,5 +1,4 @@
-import { Gender } from "./Gender";
-import { Person } from "./Person";
+import { Person, Gender } from "../Person";
 
 export class Passenger extends Person {
   constructor(

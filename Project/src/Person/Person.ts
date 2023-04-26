@@ -1,4 +1,7 @@
-import { Gender } from "./Gender";
+export enum Gender {
+  MALE,
+  FEMALE
+}
 
 export abstract class Person {
   constructor(

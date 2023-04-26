@@ -1,15 +1,17 @@
-import { Address } from "./Address";
-import { Gate } from "./Gate";
+import { Address } from "./Address/Address";
+import { Gate } from "./Gate/Gate";
 
 export class Airport {
-    private gates: Gate[] = [];  
-    constructor(private name: string, 
-                private letterCode: string, 
-                private address: Address){}
+  private gates: Gate[] = [];
+  constructor(
+    private name: string,
+    private letterCode: string,
+    private address: Address
+  ) {}
 
-    addGate(gate: Gate) {
-        this.gates.push(gate);
-    }
+  addGate(gate: Gate) {
+    this.gates.push(gate);
+  }
 }
 
 // let add = new Address('371', 'Phnom Penh', 'Cambodia')
