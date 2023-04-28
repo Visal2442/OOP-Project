@@ -1,7 +1,7 @@
 export class DateTime {
-    constructor(private day: number, private month: number, private year: number, private time: Time ){}
+    constructor(public day: number, public month: number, public year: number, public time: Time ){}
 }
 
 export class Time {
-    constructor(private hour: number, private minute: number){}
+    constructor(public hour: number, public minute: number){}
 }

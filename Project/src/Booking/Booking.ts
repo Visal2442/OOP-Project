@@ -11,9 +11,24 @@ export class Booking{
     private meal? : MealType;
 
     constructor(private bookingDatetime : DateTime, 
-                private depatureTrip : Trip, 
-                private passenger : Passenger, 
                 private bookingReferenceNumber : string,
                 private price : number,
+                private depatureTrip : Trip, 
+                private passenger : Passenger, 
                 private frequentFlyerNumber : string){}
+
+    // Get passenger 
+    getPassenger():Passenger{
+        return this.passenger;
+    }
+
+    // Get booking reference number 
+    getBookingReferenceNumber():string{
+        return this.bookingReferenceNumber;
+    }
+
+    // Get depatureTrip 
+    getDepartureTrip():Trip{
+        return this.depatureTrip;
+    }
 }
