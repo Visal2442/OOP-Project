@@ -1,3 +1,3 @@
 export class DateTime {
-    constructor(private day: number, private month: number, private year: number, private time: number ){}
+    constructor(public day: number, public month: number, public year: number, public time: number ){}
 }
