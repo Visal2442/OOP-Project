@@ -33,20 +33,3 @@ export class Airport {
     this.airlines.push(airline);
   }
 }
-
-// let add = new Address('371', 'Phnom Penh', 'Cambodia')
-// let airport = new Airport("Ronan", "RON", add);
-
-// let gate1 = new Gate('A1')
-// let gate2 = new Gate('A2')
-// let gate3 = new Gate('A3')
-// let gate4 = new Gate('A4')
-// let gate5 = new Gate('A5')
-
-// airport.addGate(gate1);
-// airport.addGate(gate2);
-// airport.addGate(gate3);
-// airport.addGate(gate4);
-// airport.addGate(gate5);
-
-// console.log(airport);

@@ -1,3 +1,3 @@
 export class Baggage{
-    private baggeageId : string;
+    constructor(private baggeageId : string){}
 }

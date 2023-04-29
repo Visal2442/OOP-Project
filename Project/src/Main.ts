@@ -74,6 +74,12 @@ angkorAirway.addEmployee(pilot1)
 angkorAirway.addEmployee(pilot2)
 
 flight1.addCrew(pilot1);
+flight1.addCrew(coPilot1);
+flight1.addCrew(attendant1);
+flight1.addCrew(attendant2);
+flight1.addCrew(attendant3);
+flight1.addCrew(attendant4);
+flight1.addCrew(chef1);
 flight2.addCrew(pilot1);
 
 // create seats
@@ -106,11 +112,12 @@ let trip1 : Trip = new Trip(new DateTime(1, 3, 2023, new Time(11,0)))
 trip1.addFlightTrip(flightTrip1);
 trip1.addFlightTrip(flightTrip2);
 
-let trip2 : Trip = new Trip(new DateTime(1, 3, 2023, new Time(11,0)))
-trip2.addFlightTrip(flightTrip1);
 let returnTrip1 : Trip = new Trip(new DateTime(5, 3, 2023, new Time(11,0)))
 returnTrip1.addFlightTrip(flightTrip2);
 returnTrip1.addFlightTrip(flightTrip3);
+
+let trip2 : Trip = new Trip(new DateTime(1, 3, 2023, new Time(11,0)))
+trip2.addFlightTrip(flightTrip1);
 
 let trip3 : Trip = new Trip(new DateTime(5, 10, 2023, new Time(10,0)))
 trip2.addFlightTrip(flightTrip2);
@@ -121,23 +128,28 @@ let passenger1 : Passenger = new Passenger("Vsial", "sork", "0123456789", Gender
 let passenger2 : Passenger = new Passenger("Johnny", "Kane", "0192345678", Gender.FEMALE);
 
 // Create Booking 
-let booking1 : Booking = new Booking(new DateTime(20, 2, 2023, new Time(11,0)), "12345", 300, trip1, passenger1, "00000");
-let booking2 : Booking = new Booking(new DateTime(20, 2, 2023, new Time(11,0)), "12345", 300, trip2, passenger1, "00000");
-let booking3 : Booking = new Booking(new DateTime(20, 2, 2023, new Time(11,0)), "12345", 300, trip1, passenger1, "00000");
-
-passenger1.addBooking(booking1);
+let booking1 : Booking = new Booking(new DateTime(20, 4, 2023, new Time(11,0)), "33333", 300, trip1, passenger1, "00000", returnTrip1);
+let booking2 : Booking = new Booking(new DateTime(21, 3, 2023, new Time(11,0)), "22222", 400, trip2, passenger1, "00000");
+let booking3 : Booking = new Booking(new DateTime(23, 2, 2023, new Time(11,0)), "11111", 600, trip1, passenger2, "00000");
 
 angkorAirway.addBooking(booking1);
 angkorAirway.addBooking(booking2);
 angkorAirway.addBooking(booking3);
 
+// Add booking to passenger 
+passenger1.addBooking(booking1);
+
 // TEST --------------------------------
-// console.log(angkorAirway.getMealForFlight(flight1));
-console.log(passenger1.getGateForPassenger(flight1));
-;
-// console.log(trip1);
-// console.log(angkorAirway.getCrewFrom(flight1));
-// console.log(phnomPenhAirport.getPassengerDetailFrom("12345"));
+// USER STORY 1 : Get passenger details by given booking reference number
+console.log(phnomPenhAirport.getPassengerDetailFrom("33333"));
+// USER STORY 2 : Get number of passengers who book return ticket 
+console.log(angkorAirway.getPassengerNumber(trip1));
+// USER STORY 3 : Get number of passengers who book return ticket 
+console.log(angkorAirway.getFlightsFor(pilot1, new DateTime(1, 3, 2023, new Time(9,30))));
+// USER STORY 4 : how many type of each meal need to prepare for a flight
+console.log(angkorAirway.getMealForFlight(flight1));
+// USER STORY 6 : Get the gate which passenger is going to for flight1
+console.log(passenger1.getGateForPassenger(flight1));   
 
 
 
