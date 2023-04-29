@@ -6,16 +6,15 @@ import { MealType } from "../Meal/Meal";
 
 
 export class Booking{
-    private returnTrip? : Trip;
     private seatClass : SeatClass = SeatClass.ECONOMY_CLASSIC;
-    private meal? : MealType;
 
     constructor(private bookingDatetime : DateTime, 
                 private bookingReferenceNumber : string,
                 private price : number,
                 private depatureTrip : Trip, 
                 private passenger : Passenger, 
-                private frequentFlyerNumber : string){}
+                private frequentFlyerNumber : string,
+                private returnTrip? : Trip){}
 
     // Get passenger 
     getPassenger():Passenger{
@@ -27,8 +26,4 @@ export class Booking{
         return this.bookingReferenceNumber;
     }
 
-    // Get depatureTrip 
-    getDepartureTrip():Trip{
-        return this.depatureTrip;
-    }
 }
