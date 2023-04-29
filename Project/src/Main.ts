@@ -36,24 +36,18 @@ let airplane1 : Airplane = new Airplane("AAA");
 let airplane2 : Airplane = new Airplane("BBB");
 let airplane3 : Airplane = new Airplane("CCC");
 
-
-
-// create Route 
+// Create Route 
 let route1 : Route = new Route("A-00", phnomPenhAirport, bankokAirport, new DateTime(1, 3, 2023, new Time(9,30)), new DateTime(1, 3, 2023, new Time(11,0)));
-let route2 : Route = new Route("A-00", bankokAirport, manchesterAirport, new DateTime(1, 3, 2023, new Time(9,30)), new DateTime(1, 3, 2023, new Time(11,0)));
-let route3 : Route = new Route("A-00", phnomPenhAirport, singaporeAirport, new DateTime(1, 3, 2023, new Time(9,30)), new DateTime(1, 3, 2023, new Time(11,0)));
+let route2 : Route = new Route("B-00", bankokAirport, manchesterAirport, new DateTime(1, 3, 2023, new Time(9,30)), new DateTime(1, 3, 2023, new Time(11,0)));
+
+let route3 : Route = new Route("C-00", manchesterAirport, bankokAirport, new DateTime(1, 3, 2023, new Time(9,30)), new DateTime(1, 3, 2023, new Time(11,0)));
+let route4 : Route = new Route("D-00", bankokAirport, phnomPenhAirport, new DateTime(1, 3, 2023, new Time(9,30)), new DateTime(1, 3, 2023, new Time(11,0)));
 
 // Create Flight 
 let flight1 : Flight = new Flight(route1, airplane1, angkorAirway, new Gate("A21"));
 let flight2 : Flight = new Flight(route2, airplane2, finair, new Gate("B20"));
 let flight3 : Flight = new Flight(route1, airplane2, airAsia, new Gate("B10"));
 let flight4 : Flight = new Flight(route3, airplane2, angkorAirway, new Gate("C20"));
-
-
-
-// Add flight to the Airline 
-// angkorAirway.addFlight(flight1);
-// angkorAirway.addFlight(flight2);
 
 // Create Crew 
 let pilot1 : Employee = new Employee("sal", "sal", "2121",Gender.MALE, 400, JobCategory.PILOT);
@@ -79,18 +73,16 @@ angkorAirway.addEmployee(pilot1)
 angkorAirway.addEmployee(pilot2)
 
 flight1.addCrew(pilot1);
-
 flight2.addCrew(pilot1);
 
 // create seats
-
 let seat1: Seat = new Seat('A1');
 let seat2: Seat = new Seat('A2');
 let seat3: Seat = new Seat('A3');
 let seat4: Seat = new Seat('A4');
 let seat5: Seat = new Seat('A5');
 
-
+// Add seats to the airplane
 airplane1.addSeat(seat1);
 airplane1.addSeat(seat2);
 airplane1.addSeat(seat3);
@@ -113,12 +105,17 @@ trip1.addFlightTrip(flightTrip2);
 
 let trip2 : Trip = new Trip(new DateTime(1, 3, 2023, new Time(11,0)))
 trip2.addFlightTrip(flightTrip1);
+let returnTrip1 : Trip = new Trip(new DateTime(5, 3, 2023, new Time(11,0)))
+returnTrip1.addFlightTrip(flightTrip2);
+returnTrip1.addFlightTrip(flightTrip3);
+
+let trip3 : Trip = new Trip(new DateTime(5, 10, 2023, new Time(10,0)))
+trip2.addFlightTrip(flightTrip2);
 trip2.addFlightTrip(flightTrip3);
 
-
-
 // Create Passengers 
-let passenger1 : Passenger = new Passenger("Vsial", "sork", "12233", Gender.MALE);
+let passenger1 : Passenger = new Passenger("Vsial", "sork", "0123456789", Gender.MALE);
+let passenger2 : Passenger = new Passenger("Johnny", "Kane", "0192345678", Gender.FEMALE);
 
 // Create Booking 
 let booking1 : Booking = new Booking(new DateTime(20, 2, 2023, new Time(11,0)), "12345", 300, trip1, passenger1, "00000");

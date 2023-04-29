@@ -26,7 +26,11 @@ export class Booking{
         return this.bookingReferenceNumber;
     }
 
-    getDepatureTrip() {
+    getDepatureTrip():Trip {
         return this.depatureTrip;
+    }
+
+    getReturnTrip():Trip | undefined{
+        return this.returnTrip;
     }
 }
