@@ -50,8 +50,8 @@ let flight3 : Flight = new Flight(route1, airplane2, airAsia, new Gate("B10"));
 let flight4 : Flight = new Flight(route3, airplane2, angkorAirway, new Gate("C20"));
 
 // Add flight to the Airline 
-angkorAirway.addFlight(flight1);
-angkorAirway.addFlight(flight2);
+// angkorAirway.addFlight(flight1);
+// angkorAirway.addFlight(flight2);
 
 // Create Crew 
 let pilot1 : Employee = new Employee("sal", "sal", "2121",Gender.MALE, 400, JobCategory.PILOT);
@@ -73,6 +73,9 @@ let attendant4 : Employee = new Employee("Phan", "nit","2121",Gender.FEMALE , 20
 let attendant5 : Employee = new Employee("Phan", "nit","2121",Gender.FEMALE , 200 , JobCategory.ATTENDANT)
 
 // Add Crew to flight 
+angkorAirway.addEmployee(pilot1)
+angkorAirway.addEmployee(pilot2)
+
 flight1.addCrew(pilot1);
 
 flight2.addCrew(pilot1);

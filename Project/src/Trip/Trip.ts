@@ -8,4 +8,7 @@ export class Trip {
     addFlightTrip(flightTrip: FlightTrip): void{
         this.flightTrips.push(flightTrip)
     }
+    getFlightTrip(): FlightTrip[] {
+        return this.flightTrips;
+    }
 }

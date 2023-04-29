@@ -8,4 +8,7 @@ export class FlightTrip {
     addMeal(meal: MealType): void{
         this.mealType = meal;
     }
+    getFlight(): Flight{
+        return this.flight;
+    }
 }

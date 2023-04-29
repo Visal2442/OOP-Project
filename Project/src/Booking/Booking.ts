@@ -26,4 +26,7 @@ export class Booking{
         return this.bookingReferenceNumber;
     }
 
+    getDepatureTrip() {
+        return this.depatureTrip;
+    }
 }

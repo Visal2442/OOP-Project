@@ -24,29 +24,13 @@ export class Flight {
   getCrew(): Employee[] {
     return this.crews;
   }
-
-  isEqualPilot(pilot: Employee): boolean {
-    for (let crew of this.crews) {
-      if (crew.getJobCategory === pilot.getJobCategory) {
-        if (
-          crew.getFirstName() === pilot.getFirstName() &&
-          crew.getLastName() === pilot.getLastName() &&
-          crew.getGender() === pilot.getGender() &&
-          crew.getPhoneNumber() === pilot.getPhoneNumber() &&
-          crew.getSalary() === pilot.getSalary()
-        ) {
-          return true;
-        }
+  isHasPilot(pilot: Employee): boolean {
+    for (let employee of this.crews) {
+      if (employee.isEqualPilot(pilot)) {
+        return true;
       }
     }
     return false;
   }
 
-  isEqualDateTime(dateTime: DateTime): boolean {
-    if (this.route.getDepartureDateTime().isEqualDateTime(dateTime)) {
-      return true;
-    } else {
-      return false;
-    }
-  }
 }
