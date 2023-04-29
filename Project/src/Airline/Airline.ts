@@ -2,6 +2,8 @@ import { Employee } from "../Person/Employee/Employee";
 import { Flight } from "./Flight";
 import { Booking } from "../Booking/Booking";
 import { DateTime } from "../Datetime/DateTime";
+import { Passenger } from "../Person/Passenger/Passenger";
+import { Trip } from "../Trip/Trip";
 
 export class Airline {
   private bookings: Booking[] = [];
@@ -22,6 +24,7 @@ export class Airline {
     return this.bookings;
   }
 
+  // Check whether pilot is working in this ariline
   isHasPilot(pilot: Employee): boolean {
     for (let employee of this.airlineEmployees) {
       if (employee.isEqualPilot(pilot)) {
@@ -30,6 +33,7 @@ export class Airline {
     }
     return false;
   }
+
   // Get flights for given pilot with given date
   getFlightsFor(pilot: Employee, dateTime: DateTime): Flight[] {
     let listOfFlights: Flight[] = [];
@@ -48,4 +52,17 @@ export class Airline {
     }
     return listOfFlights;
   }
+
+  getPassengerNumber(trip:Trip):number{
+    let countPassenger:number = 0;
+    this.bookings.forEach(booking=>{
+      if(booking.getDepatureTrip()==trip){
+        if(booking.getReturnTrip()!= undefined){
+          countPassenger+=1
+        }
+      }
+    })
+    return countPassenger;
+  }
+
 }
