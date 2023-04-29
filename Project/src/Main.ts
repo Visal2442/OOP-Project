@@ -14,11 +14,11 @@ import { Flight } from "./Airline/Flight";
 import { Booking } from "./Booking/Booking";
 
 // Create Airports 
-let bankok :Airport = new Airport("Sal", "BKK", new Address("371", "BK", "Thailand"));
-let singapore :Airport = new Airport("Sal", "SGN", new Address("371", "SG", "Singapore"));
-let phnomPenh :Airport = new Airport("Sal", "PNH", new Address("371", "PP", "Cambodia"));
-let man :Airport = new Airport("Sal", "MAN", new Address("371", "MAN", "UK"));
-let tokyo :Airport = new Airport("Sal", "TKY", new Address("371", "TKY", "Japan"));
+let bankokAirport :Airport = new Airport("Sal", "BKK", new Address("371", "BK", "Thailand"));
+let singaporeAirport :Airport = new Airport("Sal", "SGN", new Address("371", "SG", "Singapore"));
+let phnomPenhAirport :Airport = new Airport("Sal", "PNH", new Address("371", "PP", "Cambodia"));
+let manchesterAirport :Airport = new Airport("Sal", "MAN", new Address("371", "MANchester", "UK"));
+let tokyoAirport :Airport = new Airport("Sal", "TKY", new Address("371", "TKY", "Japan"));
 
 // Create Airlines
 let airAsia : Airline = new Airline("AirAsia");
@@ -26,7 +26,7 @@ let angkorAirway : Airline = new Airline("Angkor Airway");
 let finair : Airline = new Airline("Finair");
 
 // Add Airlines to the Airport 
-phnomPenh.addAirline(angkorAirway);
+phnomPenhAirport.addAirline(angkorAirway);
 
 // Create Airplane 
 let airplane1 : Airplane = new Airplane("AAA");
@@ -34,10 +34,10 @@ let airplane2 : Airplane = new Airplane("BBB");
 let airplane3 : Airplane = new Airplane("CCC");
 
 // Create Flight 
-let flight1 : Flight = new Flight("A-00", phnomPenh, bankok, airplane1, angkorAirway, new DateTime(1, 3, 2023, 10), new DateTime(1, 3, 2023, 11), new Gate("A21"));
-let flight2 : Flight = new Flight("B-12", bankok, man, airplane2, finair, new DateTime(2, 3, 2023, 10), new DateTime(3, 3, 2023, 11), new Gate("B20"));
-let flight3 : Flight = new Flight("B-12", phnomPenh, singapore, airplane2, airAsia, new DateTime(2, 3, 2023, 10), new DateTime(3, 3, 2023, 11), new Gate("B10"));
-let flight4 : Flight = new Flight("B-12", singapore, tokyo, airplane2, angkorAirway, new DateTime(2, 3, 2023, 10), new DateTime(3, 3, 2023, 11), new Gate("C20"));
+let flight1 : Flight = new Flight("A-00", phnomPenhAirport, bankokAirport, airplane1, angkorAirway, new DateTime(1, 3, 2023, new Time(9,30)), new DateTime(1, 3, 2023, new Time(11,0)), new Gate("A21"));
+let flight2 : Flight = new Flight("B-12", bankokAirport, manchesterAirport, airplane2, finair, new DateTime(2, 3, 2023, new Time(10,0)), new DateTime(3, 3, 2023, new Time(11,0)), new Gate("B20"));
+let flight3 : Flight = new Flight("B-12", phnomPenhAirport, singaporeAirport, airplane2, airAsia, new DateTime(2, 3, 2023, new Time(10,0)), new DateTime(3, 3, 2023, new Time(11, 0)), new Gate("B10"));
+let flight4 : Flight = new Flight("B-12", singaporeAirport, tokyoAirport, airplane2, angkorAirway, new DateTime(2, 3, 2023, new Time(10, 0)), new DateTime(3, 3, 2023, new Time(11, 0)), new Gate("C20"));
 
 // Add flight to the Airline 
 angkorAirway.addFlight(flight1);
@@ -71,7 +71,7 @@ console.log(angkorAirway.getFlightsFor(pilot1, new DateTime(1, 3, 2023, new Time
 
 // console.log(trip1);
 // console.log(angkorAirway.getCrewFrom(flight1));
-// console.log(phnomPenh.getPassengerDetailFrom("12345"));
+// console.log(phnomPenhAirport.getPassengerDetailFrom("12345"));
 
 
 
