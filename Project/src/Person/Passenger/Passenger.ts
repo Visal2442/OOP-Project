@@ -1,3 +1,4 @@
+import { Flight } from "../../Airline/Flight";
 import { Booking } from "../../Booking/Booking";
 import { Gate } from "../../Gate/Gate";
 import { Person, Gender } from "../Person";
@@ -15,14 +16,16 @@ export class Passenger extends Person {
   addBooking(booking: Booking): void {
     this.bookings.push(booking)
   }
-  //   get which gate does the passenger go in
-  getGateForPassenger(): Gate[] {
-    let gates: Gate[] = [];
+  
+  // Get which gate does the passenger is going to
+  getGateForPassenger(flight:Flight):Gate | undefined {
     for(let booking of this.bookings){
-      booking.getDepatureTrip().getFlightTrip().forEach((flightTrip) => {
-        gates.push(flightTrip.getFlight().getGate())
-      })
+      for(let flightTrip of booking.getDepatureTrip().getFlightTrip()){
+        if(flightTrip.getFlight()==flight) {
+          return flightTrip.getFlight().getGate();
+        }
+      }
     }
-    return gates;
+    return undefined;
   }
 }

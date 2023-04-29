@@ -15,6 +15,7 @@ import { Booking } from "./Booking/Booking";
 import { Route } from "./Airline/Route";
 import { FlightTrip } from "./Trip/FlightTrip";
 import { Seat } from "./Trip/SeatNumber";
+import { Baggage } from "./Person/Passenger/Baggage";
 
 // Create Airports 
 let bankokAirport :Airport = new Airport("Sal", "BKK", new Address("371", "BK", "Thailand"));
@@ -94,10 +95,12 @@ airplane2.addSeat(seat2);
 airplane2.addSeat(seat3);
 airplane2.addSeat(seat4);
 airplane2.addSeat(seat5);
+
 //  create Flight Trip 
 let flightTrip1: FlightTrip = new FlightTrip(seat1, flight1, MealType.DAIRY_FREE);
 let flightTrip2: FlightTrip = new FlightTrip(seat3, flight1, MealType.FORTH);
 let flightTrip3: FlightTrip = new FlightTrip(seat4, flight1, MealType.VEGAN);
+
 // Create Trip 
 let trip1 : Trip = new Trip(new DateTime(1, 3, 2023, new Time(11,0)))
 trip1.addFlightTrip(flightTrip1);
@@ -121,16 +124,17 @@ let passenger2 : Passenger = new Passenger("Johnny", "Kane", "0192345678", Gende
 let booking1 : Booking = new Booking(new DateTime(20, 2, 2023, new Time(11,0)), "12345", 300, trip1, passenger1, "00000");
 let booking2 : Booking = new Booking(new DateTime(20, 2, 2023, new Time(11,0)), "12345", 300, trip2, passenger1, "00000");
 let booking3 : Booking = new Booking(new DateTime(20, 2, 2023, new Time(11,0)), "12345", 300, trip1, passenger1, "00000");
-// let booking4 : Booking = new Booking(new DateTime(20, 2, 2023, new Time(11,0)), "12345", 300, trip1, passenger1, "00000");
+
+passenger1.addBooking(booking1);
+
 angkorAirway.addBooking(booking1);
 angkorAirway.addBooking(booking2);
 angkorAirway.addBooking(booking3);
 
-
 // TEST --------------------------------
-console.log(angkorAirway.getMealForFlight(flight1));
-
-
+// console.log(angkorAirway.getMealForFlight(flight1));
+console.log(passenger1.getGateForPassenger(flight1));
+;
 // console.log(trip1);
 // console.log(angkorAirway.getCrewFrom(flight1));
 // console.log(phnomPenhAirport.getPassengerDetailFrom("12345"));

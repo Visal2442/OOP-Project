@@ -12,10 +12,12 @@ export class Airline {
   private airlineEmployees: Employee[] = [];
 
   constructor(private name: string) {}
+
   // add employee from given flight
   addEmployee(employee: Employee): void {
     this.airlineEmployees.push(employee);
   }
+
   // Add new booking
   addBooking(booking: Booking): void {
     this.bookings.push(booking);
@@ -42,18 +44,8 @@ export class Airline {
 
     if (this.isHasPilot(pilot)) {
       this.bookings.forEach((booking) => {
-        booking
-          .getDepatureTrip()
-          .getFlightTrip()
-          .forEach((flightTrip) => {
-            if (
-              flightTrip.getFlight().isHasPilot(pilot) &&
-              flightTrip
-                .getFlight()
-                .getRoute()
-                .getDepartureDateTime()
-                .isEqualDateTime(dateTime)
-            )
+        booking.getDepatureTrip().getFlightTrip().forEach((flightTrip) => {
+          if (flightTrip.getFlight().isHasPilot(pilot) && flightTrip.getFlight().getRoute().getDepartureDateTime().isEqualDateTime(dateTime))
               listOfFlights.push(flightTrip.getFlight());
           });
       });
@@ -75,8 +67,8 @@ export class Airline {
     });
     return result;
   }
-  // find how many money did airline pay to all employees
 
+  // Find how much money did airline pay to all employees
   getAllSalaryEmployees(): number {
     let salary: number = 0;
     for (let employee of this.airlineEmployees) {
@@ -85,7 +77,7 @@ export class Airline {
     return salary;
   }
 
-
+  // Get passengerNumber who booked return ticket 
   getPassengerNumber(trip:Trip):number{
     let countPassenger:number = 0;
     this.bookings.forEach(booking=>{
