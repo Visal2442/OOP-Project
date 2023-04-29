@@ -20,7 +20,9 @@ export class Flight {
   addCrew(crew: Employee): void {
     this.crews.push(crew);
   }
-
+  getGate(): Gate {
+    return this.gate;
+  }
   getCrew(): Employee[] {
     return this.crews;
   }
@@ -32,5 +34,6 @@ export class Flight {
     }
     return false;
   }
+
 
 }

@@ -49,6 +49,8 @@ let flight2 : Flight = new Flight(route2, airplane2, finair, new Gate("B20"));
 let flight3 : Flight = new Flight(route1, airplane2, airAsia, new Gate("B10"));
 let flight4 : Flight = new Flight(route3, airplane2, angkorAirway, new Gate("C20"));
 
+
+
 // Add flight to the Airline 
 // angkorAirway.addFlight(flight1);
 // angkorAirway.addFlight(flight2);
@@ -101,16 +103,16 @@ airplane2.addSeat(seat3);
 airplane2.addSeat(seat4);
 airplane2.addSeat(seat5);
 //  create Flight Trip 
-let flightTrip1: FlightTrip = new FlightTrip(seat1, flight1);
-let flightTrip2: FlightTrip = new FlightTrip(seat3, flight2);
-let flightTrip3: FlightTrip = new FlightTrip(seat4, flight3);
+let flightTrip1: FlightTrip = new FlightTrip(seat1, flight1, MealType.DAIRY_FREE);
+let flightTrip2: FlightTrip = new FlightTrip(seat3, flight1, MealType.FORTH);
+let flightTrip3: FlightTrip = new FlightTrip(seat4, flight1, MealType.VEGAN);
 // Create Trip 
 let trip1 : Trip = new Trip(new DateTime(1, 3, 2023, new Time(11,0)))
 trip1.addFlightTrip(flightTrip1);
 trip1.addFlightTrip(flightTrip2);
 
 let trip2 : Trip = new Trip(new DateTime(1, 3, 2023, new Time(11,0)))
-trip2.addFlightTrip(flightTrip2);
+trip2.addFlightTrip(flightTrip1);
 trip2.addFlightTrip(flightTrip3);
 
 
@@ -120,11 +122,17 @@ let passenger1 : Passenger = new Passenger("Vsial", "sork", "12233", Gender.MALE
 
 // Create Booking 
 let booking1 : Booking = new Booking(new DateTime(20, 2, 2023, new Time(11,0)), "12345", 300, trip1, passenger1, "00000");
+let booking2 : Booking = new Booking(new DateTime(20, 2, 2023, new Time(11,0)), "12345", 300, trip2, passenger1, "00000");
+let booking3 : Booking = new Booking(new DateTime(20, 2, 2023, new Time(11,0)), "12345", 300, trip1, passenger1, "00000");
+// let booking4 : Booking = new Booking(new DateTime(20, 2, 2023, new Time(11,0)), "12345", 300, trip1, passenger1, "00000");
 angkorAirway.addBooking(booking1);
+angkorAirway.addBooking(booking2);
+angkorAirway.addBooking(booking3);
 
 
 // TEST --------------------------------
-console.log(angkorAirway.getFlightsFor(pilot1, new DateTime(1, 3, 2023, new Time(9,30))));
+console.log(angkorAirway.getMealForFlight(flight1));
+
 
 // console.log(trip1);
 // console.log(angkorAirway.getCrewFrom(flight1));
