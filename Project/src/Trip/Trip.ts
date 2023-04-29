@@ -1,12 +1,11 @@
 import { DateTime } from "../Datetime/DateTime";
-import { Flight } from "../Airline/Flight";
+import { Flight } from "../Airline/Flight"; 
+import { FlightTrip } from "./FlightTrip"; 
 
 export class Trip {
-    private flights : Flight[] = []; 
-
-    constructor(private departureDatetime : DateTime){};
-
-    addFlight(flight: Flight):void{
-        this.flights.push(flight);
+    private flightTrips: FlightTrip[] = [];
+    constructor(private departureDatetime : DateTime, ){};
+    addFlightTrip(flightTrip: FlightTrip): void{
+        this.flightTrips.push(flightTrip)
     }
 }
