@@ -43,8 +43,8 @@ let flight4 : Flight = new Flight("B-12", singaporeAirport, tokyoAirport, airpla
 angkorAirway.addFlight(flight1);
 
 // Create Crew 
-let pilot1 : Employee = new Employee("sal", "sal", "2121",Gender.MALE, 400, JobCategory.PILOT);
-let pilot2 : Employee = new Employee("sal", "sal", "2121",Gender.MALE, 400, JobCategory.PILOT);
+let pilot1 : Employee = new Employee("Sal", "Boy Loy", "0987654321",Gender.MALE, 400, JobCategory.PILOT);
+let pilot2 : Employee = new Employee("Vireak", "Loy", "0123456789",Gender.MALE, 500, JobCategory.PILOT);
 
 // Add Crew to flight 
 flight1.addCrew(pilot1);
