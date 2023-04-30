@@ -18,10 +18,12 @@ export class Airport {
   }
 
   // Get passenger's trip detail by given booking reference number 
-  getPassengerDetailFrom(bookingReference: string):Booking | undefined{
+  getPassengerDetailFrom(bookingReference:string):Booking|undefined{
       for(let airline of this.airlines){
         for(let booking of airline.getBookings()){
-          if(booking.getBookingReferenceNumber() === bookingReference){
+          if(
+            booking.getBookingReferenceNumber() === 
+            bookingReference){
             return booking;
           };
         }

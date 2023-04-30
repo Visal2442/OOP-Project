@@ -69,10 +69,11 @@ let attendant3 : Employee = new Employee("Phan", "nit","2121",Gender.FEMALE , 20
 let attendant4 : Employee = new Employee("Phan", "nit","2121",Gender.FEMALE , 200 , JobCategory.ATTENDANT)
 let attendant5 : Employee = new Employee("Phan", "nit","2121",Gender.FEMALE , 200 , JobCategory.ATTENDANT)
 
-// Add Crew to flight 
+// Add Crew to Airline 
 angkorAirway.addEmployee(pilot1)
 angkorAirway.addEmployee(pilot2)
 
+// Add Crew to flight 
 flight1.addCrew(pilot1);
 flight1.addCrew(coPilot1);
 flight1.addCrew(attendant1);
@@ -148,6 +149,8 @@ console.log(angkorAirway.getPassengerNumber(trip1));
 console.log(angkorAirway.getFlightsFor(pilot1, new DateTime(1, 3, 2023, new Time(9,30))));
 // USER STORY 4 : how many type of each meal need to prepare for a flight
 console.log(angkorAirway.getMealForFlight(flight1));
+// USER STORY 5 : How much money company pays to all employees
+console.log(angkorAirway.getAllSalaryEmployees());
 // USER STORY 6 : Get the gate which passenger is going to for flight1
 console.log(passenger1.getGateForPassenger(flight1));   
 

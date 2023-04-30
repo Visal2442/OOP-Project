@@ -45,7 +45,8 @@ export class Airline {
     if (this.isHasPilot(pilot)) {
       this.bookings.forEach((booking) => {
         booking.getDepatureTrip().getFlightTrip().forEach((flightTrip) => {
-          if (flightTrip.getFlight().isHasPilot(pilot) && flightTrip.getFlight().getRoute().getDepartureDateTime().isEqualDateTime(dateTime))
+          if (flightTrip.getFlight().isHasPilot(pilot) && 
+          flightTrip.getFlight().getRoute().getDepartureDateTime().isEqualDateTime(dateTime))
               listOfFlights.push(flightTrip.getFlight());
           });
       });
@@ -58,17 +59,15 @@ export class Airline {
     let result: MealType[] = [];
     this.bookings.forEach((booking) => {
       booking.getDepatureTrip().getFlightTrip().forEach((flightTrip) => {
-          if (flightTrip.getFlight() == flight) {
-            if(flightTrip.getMeal() != undefined ){
-                result.push(flightTrip.getMeal())
-            }
+          if(flightTrip.getFlight() == flight) {
+            result.push(flightTrip.getMeal())
           }
         });
     });
     return result;
   }
 
-  // Find how much money did airline pay to all employees
+  // How much money did airline pay to all employees
   getAllSalaryEmployees(): number {
     let salary: number = 0;
     for (let employee of this.airlineEmployees) {
